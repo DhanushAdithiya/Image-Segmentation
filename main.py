@@ -4,7 +4,7 @@ from PIL import Image
 from sklearn.cluster import KMeans
 
 
-image = Image.open("./colr.jpg")
+image = Image.open(sys.argv[1])
 img_arr = np.array(image)
 dis_img = Image.fromarray(img_arr, "RGB")
 
@@ -14,7 +14,7 @@ print(img_arr.shape)
 print(vec.shape)
 
 
-kmeans = KMeans(n_clusters = 5, random_state = 0, n_init = 1).fit(vec)
+kmeans = KMeans(n_clusters = sys.argv[2], random_state = 0, n_init = 1).fit(vec)
 colors = np.uint8(kmeans.cluster_centers_)
 seg = colors[kmeans.labels_.flatten()]
 
