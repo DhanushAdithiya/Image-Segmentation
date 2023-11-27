@@ -14,7 +14,7 @@ print(img_arr.shape)
 print(vec.shape)
 
 
-kmeans = KMeans(n_clusters = sys.argv[2], random_state = 0, n_init = 1).fit(vec)
+kmeans = KMeans(n_clusters = int(sys.argv[2]), random_state = 0, n_init = 1).fit(vec)
 colors = np.uint8(kmeans.cluster_centers_)
 seg = colors[kmeans.labels_.flatten()]
 
